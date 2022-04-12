@@ -18,11 +18,12 @@ class Pasutijums {
   }
 
   public void Print() {
-    Console.WriteLine($"Grozs klientam {this.Klients.KlientaID}");
+    Console.WriteLine($"Grozs klientam #{this.Klients.KlientaID}");
+    Console.WriteLine($"Pasūtījums #{this.PasutijumaID}");
     foreach(Produkts prece in this.Preces) {
       Console.WriteLine($"> {prece.Daudzums}x  {prece.Nosaukums}");
     }
-    Console.WriteLine($"Kopā: {this.Cena}");
+    Console.WriteLine($"Kopā: {this.Cena} eur");
     Console.WriteLine("");
   }
 }
