@@ -1,15 +1,28 @@
 using System;
+using System.Collections.Generic;
 
 class Pasutijums {
-  public string KlientaID { get; set; }
-  public string Preces { get; set; }
-  public double Cena { get; set; }
-  public string PasutijumaID { get; set; }
+  public Pircejs Klients { get; }
+  public List<Produkts> Preces { get; }
+  public double Cena { get; }
+  public string PasutijumaID { get; }
 
-  public Pasutijums(string klientaID, string preces, double cena, string pasutijumaID) {
-    this.KlientaID = klientaID;
-    this.Preces = preces;
-    this.Cena = cena;
+  public Pasutijums(Pircejs klients, string pasutijumaID) {
+    this.Klients = klients;
+    this.Preces = new List<Produkts>();
     this.PasutijumaID = pasutijumaID;    
+  }
+
+  public void PievienotGrozam(Produkts produkts) {
+    this.Preces.Add(produkts);
+  }
+
+  public void Print() {
+    Console.WriteLine($"Grozs klientam {this.Klients.KlientaID}");
+    foreach(Produkts prece in this.Preces) {
+      Console.WriteLine($"> {prece.Daudzums}x  {prece.Nosaukums}");
+    }
+    Console.WriteLine($"Kopā: {this.Cena}");
+    Console.WriteLine("");
   }
 }

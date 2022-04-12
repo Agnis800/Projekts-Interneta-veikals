@@ -6,10 +6,10 @@ class Pircejs {
   public int LojalitatesPunkti { get; set; }
   public double Nauda { get; set; }
 
-  public Pircejs(string personasKods, int klientaID, int lojalitatesPunkti, double nauda) {
+  public Pircejs(string personasKods, int klientaID, double nauda) {
     this.PersonasKods = personasKods;
     this.KlientaID = klientaID;
-    this.LojalitatesPunkti = lojalitatesPunkti;
+    this.LojalitatesPunkti = 0;
     this.Nauda = nauda;
   }
 }
