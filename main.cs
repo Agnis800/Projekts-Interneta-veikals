@@ -4,7 +4,9 @@ class Program {
   public static void Main (string[] args) {
 
     // Izveido klientu
-    Pircejs klients = new Pircejs("1111-1111", 11111, 500.00);
+    Pircejs klients = new Pircejs("1111-1111", 11111, 5000.00);
+
+    klients.Print();
 
     // Uzsāk pasūtījumu
     Pasutijums pasutijums = new Pasutijums(klients, "11111-123");
@@ -17,5 +19,14 @@ class Program {
 
     // Izdrukā čeku
     pasutijums.Print();
+
+    Console.WriteLine("===== Pasūta =====\n");
+
+    // Pasūta
+    klients.Pirkt(pasutijums);
+
+    // Ir nopirkts
+    pasutijums.Print();
+    klients.Print();
   }
 }

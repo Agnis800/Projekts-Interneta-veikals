@@ -12,11 +12,13 @@ class Pasutijums {
     return summa;
   }}
   public string PasutijumaID { get; }
+  public bool nopirkts;
 
   public Pasutijums(Pircejs klients, string pasutijumaID) {
     this.Klients = klients;
     this.Preces = new List<Produkts>();
     this.PasutijumaID = pasutijumaID;    
+    this.nopirkts = false;
   }
 
   public void PievienotGrozam(Produkts produkts) {
@@ -26,6 +28,7 @@ class Pasutijums {
   public void Print() {
     Console.WriteLine($"Grozs klientam #{this.Klients.KlientaID}");
     Console.WriteLine($"Pasūtījums #{this.PasutijumaID}");
+    Console.WriteLine($"Nopirkts: {this.nopirkts}");
     foreach(Produkts prece in this.Preces) {
       Console.WriteLine($"> {prece.Daudzums}x {prece.Cena}€ {prece.Nosaukums}");
     }
