@@ -2,9 +2,20 @@ using System;
 
 class Program {
   public static void Main (string[] args) {
-    Produkts dators = new Produkts("HSG-dhs-4728", 550.00,  "Lenovo Essential V14-IIL", 128.00);
-    Produkts putekļsūcējs = new Produkts("SJD-fus-2948", 458,49, "Roborock S6 MaxV", 0.00);
-    Pasutijums ID46w847 = new Pasutijums("38294hsdq", "Lenovo Essential V14-IIL", 1008,49, "ID46w847");
-    Pircejs Jānis = new Pircejs("321946-17392", "38294hsdq", 5, "1500.00");
+
+    // Izveido klientu
+    Pircejs klients = new Pircejs("1111-1111", 11111, 500.00);
+
+    // Uzsāk pasūtījumu
+    Pasutijums pasutijums = new Pasutijums(klients, "11111-123");
+
+    // Izveido preci
+    Produkts prece_dators = new Produkts("1234512345", 20.50, "Lenovo BrickPad 5 pro", 0, 500);
+
+    // Ieliek grozā 50 preces
+    pasutijums.PievienotGrozam( prece_dators.Take(50) );
+
+    // Izdrukā čeku
+    pasutijums.Print();
   }
 }

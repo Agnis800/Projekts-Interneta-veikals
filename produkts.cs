@@ -12,6 +12,7 @@ class Produkts {
     this.Cena = cena;
     this.Nosaukums = nosaukums;
     this.Atlaide = atlaide;
+    this.Daudzums = daudzums;
   }
 
   // "Izņem" produktu no veikala pievienošanai pasūtījumam
