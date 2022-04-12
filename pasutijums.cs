@@ -4,7 +4,13 @@ using System.Collections.Generic;
 class Pasutijums {
   public Pircejs Klients { get; }
   public List<Produkts> Preces { get; }
-  public double Cena { get; }
+  public double Cena { get{
+    double summa = 0;
+    foreach(Produkts prece in this.Preces) {
+      summa += prece.Cena * prece.Daudzums;
+    }
+    return summa;
+  }}
   public string PasutijumaID { get; }
 
   public Pasutijums(Pircejs klients, string pasutijumaID) {
@@ -21,9 +27,9 @@ class Pasutijums {
     Console.WriteLine($"Grozs klientam #{this.Klients.KlientaID}");
     Console.WriteLine($"Pasūtījums #{this.PasutijumaID}");
     foreach(Produkts prece in this.Preces) {
-      Console.WriteLine($"> {prece.Daudzums}x  {prece.Nosaukums}");
+      Console.WriteLine($"> {prece.Daudzums}x {prece.Cena}€ {prece.Nosaukums}");
     }
-    Console.WriteLine($"Kopā: {this.Cena} eur");
+    Console.WriteLine($"Kopā: {this.Cena}€");
     Console.WriteLine("");
   }
 }
