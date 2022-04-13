@@ -11,10 +11,10 @@ class Pasutijums {
     }
     return summa;
   }}
-  public string PasutijumaID { get; }
+  public int PasutijumaID { get; }
   public bool nopirkts;
 
-  public Pasutijums(Pircejs klients, string pasutijumaID) {
+  public Pasutijums(Pircejs klients, int pasutijumaID) {
     this.Klients = klients;
     this.Preces = new List<Produkts>();
     this.PasutijumaID = pasutijumaID;    
