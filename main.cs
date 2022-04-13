@@ -36,38 +36,38 @@ class Program {
           klients = new Pircejs(persKods, (int)(DateTime.Now.Ticks % 1000), nauda);
           grozs = new Pasutijums(klients, (int)(DateTime.Now.Ticks % 100));
         }
-        if(Lapa == "sākums") {
-          Console.Clear();
-          Console.WriteLine("1 - Apskatīt grozu");
-          Console.WriteLine("2 - Apskatīt produktus");
-          Console.WriteLine("q - Aizvērt");
+      }
+      if(Lapa == "sākums") {
+        Console.Clear();
+        Console.WriteLine("1 - Apskatīt grozu");
+        Console.WriteLine("2 - Apskatīt produktus");
+        Console.WriteLine("q - Aizvērt");
 
-          Console.Write("\nJūsu izvēle: ");
-          input = Console.ReadLine();
-          if(input == "q"){
-          Console.Clear();
-          Console.WriteLine("Paldies par ieprikšanos ar mums!");
-          return;
-          }
-          if(input == "1") {
-            Console.Clear();
-            grozs.Print();
-            Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
-            Console.ReadLine();
-            continue;
-          }
-          if(input == "2") {
-            Console.Clear();
-            prece_dators.Print();
-            prece_putekļsūcējs.Print();
-            prece_spēle.Print();
-            prece_telts.Print();
-            Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
-            Console.ReadLine();
-            continue;
-          }
-          
+        Console.Write("\nJūsu izvēle: ");
+        string input = Console.ReadLine();
+        if(input == "q"){
+        Console.Clear();
+        Console.WriteLine("Paldies par ieprikšanos ar mums!");
+        return;
         }
+        if(input == "1") {
+          Console.Clear();
+          grozs.Print();
+          Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
+          Console.ReadLine();
+          continue;
+        }
+        if(input == "2") {
+          Console.Clear();
+          prece_dators.Print();
+          prece_putekļsūcējs.Print();
+          prece_spēle.Print();
+          prece_telts.Print();
+          Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
+          Console.ReadLine();
+          continue;
+        }
+        
       }
     }
 
