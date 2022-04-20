@@ -108,7 +108,8 @@ class Program {
         }
 
         if (input == "4") {
-          //TODO veikt pirkumu
+          klients.Pirkt(grozs);
+          grozs = new Pasutijums(klients, (int)(DateTime.Now.Ticks % 100));
         }
       }
     }

@@ -30,6 +30,9 @@ class Pasutijums {
     Console.WriteLine($"Pasūtījums #{this.PasutijumaID}");
     Console.WriteLine($"Nopirkts: {this.nopirkts}");
     foreach(Produkts prece in this.Preces) {
+      if (nopirkts == true) {
+            break;
+          }
       Console.WriteLine($"> {prece.Daudzums}x {prece.Cena}€ {prece.Nosaukums}");
     }
     Console.WriteLine($"Kopā: {this.Cena}€");
