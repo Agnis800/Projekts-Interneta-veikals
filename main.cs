@@ -46,8 +46,12 @@ class Program {
         Console.Clear();
         Console.WriteLine("1 - Apskatīt grozu");
         Console.WriteLine("2 - Apskatīt produktus");
+<<<<<<< HEAD
         Console.WriteLine("3 - Pievienot produktu grozam");
         Console.WriteLine("4 - Veikt pirkumu");
+=======
+        Console.WriteLine("3 - Katalogs");
+>>>>>>> origin/main
         Console.WriteLine("q - Aizvērt");
 
         Console.Write("\nJūsu izvēle: ");
@@ -73,6 +77,7 @@ class Program {
           Console.ReadLine();
           continue;
         }
+<<<<<<< HEAD
 
         if(input == "3") {
           Console.Clear();
@@ -108,7 +113,22 @@ class Program {
 
      if(input == "4") {
         //TODO veikt pirkumu
+=======
+        if(input == "3") {
+          Lapa = "katalogs";
+        }
+              
+>>>>>>> origin/main
       }
+        if(Lapa == "katalogs") {
+          Console.Clear();
+          Console.WriteLine($"1 = {prece_dators.Nosaukums}");
+          Console.WriteLine($"2 = {prece_putekļsūcējs.Nosaukums}");
+          Console.WriteLine($"3 = {prece_spēle.Nosaukums}");
+          Console.WriteLine($"4 = {prece_telts.Nosaukums}");
+          Console.Write("\nJūsu izvēle: ");
+          string input = Console.ReadLine();
+        }
     }
 
     /*
