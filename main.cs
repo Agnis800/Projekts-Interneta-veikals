@@ -1,15 +1,20 @@
 using System;
+using System.Collections.Generic;
 
 class Program {
   public static void Main (string[] args) {
 
-    Pircejs klients = default;
+    Pircejs klients = default; 
     Pasutijums grozs = default;
     string Lapa = "sākums";
-    Produkts prece_dators = new Produkts("1234512345", 20.50, "Lenovo BrickPad 5 pro", 0.00, 500);
-    Produkts prece_putekļsūcējs = new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000);
-    Produkts prece_telts = new Produkts("2536746726", 229.00, "Coleman Kobuk Valley 3 Plus", 0.00, 200);
-    Produkts prece_spēle = new Produkts("6256197653", 31.01, "Brain Games Catan", 20.68, 400);
+
+    List<Produkts> produkti = new List<Produkts>();
+
+    produkti.Add(new Produkts("1234512345", 20.50, "Lenovo BrickPad 5 pro", 0.00, 500));
+    produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
+    produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
+    produkti.Add(new Produkts("2536746726", 229.00, "Coleman Kobuk Valley 3 Plus", 0.00, 200));
+    produkti.Add(new Produkts("6256197653", 31.01, "Brain Games Catan", 20.68, 400));
     
     
     while(true) {
@@ -41,6 +46,8 @@ class Program {
         Console.Clear();
         Console.WriteLine("1 - Apskatīt grozu");
         Console.WriteLine("2 - Apskatīt produktus");
+        Console.WriteLine("3 - Pievienot produktu grozam");
+        Console.WriteLine("4 - Veikt pirkumu");
         Console.WriteLine("q - Aizvērt");
 
         Console.Write("\nJūsu izvēle: ");
@@ -59,15 +66,48 @@ class Program {
         }
         if(input == "2") {
           Console.Clear();
-          prece_dators.Print();
-          prece_putekļsūcējs.Print();
-          prece_spēle.Print();
-          prece_telts.Print();
+          foreach(Produkts produkts in produkti) {
+            produkts.Print();
+          }
           Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
           Console.ReadLine();
           continue;
         }
-        
+
+        if(input == "3") {
+          Console.Clear();
+          for(var i = 0; i < produkti.Count; i ++) { 
+            Produkts produkts = produkti[i];
+            Console.WriteLine($">>> Produkts {i}");
+            produkts.Print();
+          }
+          Console.Write("Izvēlaties produktu (q lai izietu): ");
+          string atbilde = Console.ReadLine();
+          if(atbilde == "q"){
+            Lapa = "sākums";
+            continue;
+          }
+          if(Int32.TryParse(atbilde, out int j)) {
+            Console.Write("Izvēlaties skaitu (q lai izietu): ");
+            atbilde = Console.ReadLine();
+            if(atbilde == "q"){
+              Lapa = "sākums";
+              continue;
+            }
+            if(Int32.TryParse(atbilde, out int skaits)) {
+              grozs.PievienotGrozam( produkti[j].Take(skaits) );
+              Lapa = "sākums";
+              continue;
+            } else {
+              continue;
+            }
+          } else {
+            continue;
+          }
+      }
+
+     if(input == "4") {
+        //TODO veikt pirkumu
       }
     }
 
