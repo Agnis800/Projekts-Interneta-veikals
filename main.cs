@@ -14,7 +14,6 @@ class Program {
 
     produkti.Add(new Produkts("1234512345", 20.50, "Lenovo BrickPad 5 pro", 0.00, 500));
     produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
-    produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
     produkti.Add(new Produkts("2536746726", 229.00, "Coleman Kobuk Valley 3 Plus", 0.00, 200));
     produkti.Add(new Produkts("6256197653", 31.01, "Brain Games Catan", 20.68, 400));
 
@@ -109,6 +108,9 @@ class Program {
 
         if (input == "4") {
           klients.Pirkt(grozs);
+          Console.WriteLine($"Nopirkts par {grozs.Cena}, jums ir atlikuši {klients.Nauda}");
+          Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
+          Console.ReadLine();
           grozs = new Pasutijums(klients, (int)(DateTime.Now.Ticks % 100));
         }
       }
