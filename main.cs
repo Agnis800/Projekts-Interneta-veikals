@@ -2,23 +2,24 @@ using System;
 using System.Collections.Generic;
 
 class Program {
-  public static void Main (string[] args) {
+  public static void Main(string[] args) {
 
-    Pircejs klients = default; 
-    Pasutijums grozs = default;
+    Pircejs klients =
+      default;
+    Pasutijums grozs =
+      default;
     string Lapa = "sākums";
 
-    List<Produkts> produkti = new List<Produkts>();
+    List < Produkts > produkti = new List < Produkts > ();
 
     produkti.Add(new Produkts("1234512345", 20.50, "Lenovo BrickPad 5 pro", 0.00, 500));
     produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
     produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
     produkti.Add(new Produkts("2536746726", 229.00, "Coleman Kobuk Valley 3 Plus", 0.00, 200));
     produkti.Add(new Produkts("6256197653", 31.01, "Brain Games Catan", 20.68, 400));
-    
-    
-    while(true) {
-      if(klients == default(Pircejs)){
+
+    while (true) {
+      if (klients == default (Pircejs)) {
         Console.Clear();
         Console.WriteLine("Sveicināti internetveikalā!");
         Console.WriteLine("1 - Pierakstīties");
@@ -26,12 +27,12 @@ class Program {
 
         Console.Write("\nJūsu izvēle: ");
         string input = Console.ReadLine();
-        if(input == "q"){
+        if (input == "q") {
           Console.Clear();
           Console.WriteLine("Paldies par ieprikšanos ar mums!");
           return;
         }
-        if(input == "1") {
+        if (input == "1") {
           Console.Clear();
           Console.WriteLine("Lūdu ievadiet savus datus lai reģistrētos!");
           Console.Write("\nJūsu personas kods: ");
@@ -42,33 +43,29 @@ class Program {
           grozs = new Pasutijums(klients, (int)(DateTime.Now.Ticks % 100));
         }
       }
-      if(Lapa == "sākums") {
+      if (Lapa == "sākums") {
         Console.Clear();
         Console.WriteLine("1 - Apskatīt grozu");
         Console.WriteLine("2 - Apskatīt produktus");
-<<<<<<< HEAD
         Console.WriteLine("3 - Pievienot produktu grozam");
         Console.WriteLine("4 - Veikt pirkumu");
-=======
-        Console.WriteLine("3 - Katalogs");
->>>>>>> origin/main
         Console.WriteLine("q - Aizvērt");
 
         Console.Write("\nJūsu izvēle: ");
         string input = Console.ReadLine();
-        if(input == "q"){
-        Console.Clear();
-        Console.WriteLine("Paldies par ieprikšanos ar mums!");
-        return;
+        if (input == "q") {
+          Console.Clear();
+          Console.WriteLine("Paldies par ieprikšanos ar mums!");
+          return;
         }
-        if(input == "1") {
+        if (input == "1") {
           Console.Clear();
           grozs.Print();
           Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
           Console.ReadLine();
           continue;
         }
-        if(input == "2") {
+        if (input == "2") {
           Console.Clear();
           foreach(Produkts produkts in produkti) {
             produkts.Print();
@@ -77,30 +74,29 @@ class Program {
           Console.ReadLine();
           continue;
         }
-<<<<<<< HEAD
 
-        if(input == "3") {
+        if (input == "3") {
           Console.Clear();
-          for(var i = 0; i < produkti.Count; i ++) { 
+          for (var i = 0; i < produkti.Count; i++) {
             Produkts produkts = produkti[i];
             Console.WriteLine($">>> Produkts {i}");
             produkts.Print();
           }
           Console.Write("Izvēlaties produktu (q lai izietu): ");
           string atbilde = Console.ReadLine();
-          if(atbilde == "q"){
+          if (atbilde == "q") {
             Lapa = "sākums";
             continue;
           }
-          if(Int32.TryParse(atbilde, out int j)) {
+          if (Int32.TryParse(atbilde, out int j)) {
             Console.Write("Izvēlaties skaitu (q lai izietu): ");
             atbilde = Console.ReadLine();
-            if(atbilde == "q"){
+            if (atbilde == "q") {
               Lapa = "sākums";
               continue;
             }
-            if(Int32.TryParse(atbilde, out int skaits)) {
-              grozs.PievienotGrozam( produkti[j].Take(skaits) );
+            if (Int32.TryParse(atbilde, out int skaits)) {
+              grozs.PievienotGrozam(produkti[j].Take(skaits));
               Lapa = "sākums";
               continue;
             } else {
@@ -109,29 +105,15 @@ class Program {
           } else {
             continue;
           }
-      }
+        }
 
-     if(input == "4") {
-        //TODO veikt pirkumu
-=======
-        if(input == "3") {
-          Lapa = "katalogs";
+        if (input == "4") {
+          //TODO veikt pirkumu
         }
-              
->>>>>>> origin/main
       }
-        if(Lapa == "katalogs") {
-          Console.Clear();
-          Console.WriteLine($"1 = {prece_dators.Nosaukums}");
-          Console.WriteLine($"2 = {prece_putekļsūcējs.Nosaukums}");
-          Console.WriteLine($"3 = {prece_spēle.Nosaukums}");
-          Console.WriteLine($"4 = {prece_telts.Nosaukums}");
-          Console.Write("\nJūsu izvēle: ");
-          string input = Console.ReadLine();
-        }
     }
 
-    /*
+      /*
 
     // Izveido klientu
     Pircejs klients = new Pircejs("1111-1111", 11111, 5000.00);
