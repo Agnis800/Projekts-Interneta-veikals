@@ -1,36 +1,45 @@
 using System;
-using System.Reflection;
-using System.Collections;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Runtime.Serialization;
 using System.IO;
+using System.Collections.Generic;
 
 // Saglabā objektu XML formātā
 // https://stackoverflow.com/a/4267126
 
 public class DB {
-  public string path {get; private set;}
-  public object ReferenceObject {get; private set;}
 
-  public DB(string path, object objekts) {
-    this.path = path;
-    this.ReferenceObject = objekts;
+  const string path = "./dati/Produkti.txt";
+
+  public static bool Exists() {
+    return File.Exists(DB.path);
   }
 
-  public object load() {
-    return 0;
+  public static void Save(List<Produkts> produkti) {
+
+    File.WriteAllText(DB.path, "");
+
+    foreach (Produkts produkts in produkti) {
+      
+      File.AppendAllText(DB.path, produkts.Export() + "\n");
+      
+    }
+    
   }
 
-  public void save(object objekts) {
-    FileStream fs = new FileStream(this.path, FileMode.Create);
-    BinaryFormatter formatter = new BinaryFormatter();
-    formatter.Serialize(fs, objekts);
-    fs.Close();
-  }
+  public static List<Produkts> Load() {
+    string[] lines = File.ReadAllLines(DB.path);
 
-  public bool Exists() {
-    FileInfo f = new FileInfo(this.path);
-    return f.Exists;
+    List < Produkts > produkti = new List < Produkts > ();
+
+    foreach(string line in lines) {
+
+      if(line.Length == 0) {
+        continue;
+      }
+      
+      produkti.Add(new Produkts(line));
+    }
+
+    return produkti;
   }
   
 }

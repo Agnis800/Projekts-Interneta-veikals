@@ -1,6 +1,6 @@
 using System;
 
-class Produkts {
+public class Produkts {
   public string SvitruKods { get; set; }
   public double Cena { get; set; }
   public string Nosaukums { get; set; }
@@ -13,6 +13,19 @@ class Produkts {
     this.Nosaukums = nosaukums;
     this.Atlaide = atlaide;
     this.Daudzums = daudzums;
+  }
+
+  public Produkts(string import) {
+    string[] parts = import.Split("|");
+
+    Console.WriteLine(import);
+
+    this.SvitruKods = parts[0];
+    this.Cena = Double.Parse(parts[1]);
+    this.Nosaukums = parts[2];
+    this.Atlaide = Double.Parse(parts[3]);
+    this.Daudzums = (int)Int64.Parse(parts[4]);
+    
   }
 
   public void Print() {
@@ -33,6 +46,11 @@ class Produkts {
     }
     this.Daudzums -= daudzums;
     return new Produkts(this.SvitruKods, this.Cena, this.Nosaukums, this.Atlaide, daudzums);
+  }
+
+  // Atgriež produktu kā string
+  public string Export() {
+    return $"{this.SvitruKods}|{this.Cena}|{this.Nosaukums}|{this.Atlaide}|{this.Daudzums}";
   }
   
 }

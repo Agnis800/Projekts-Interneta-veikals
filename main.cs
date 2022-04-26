@@ -12,13 +12,25 @@ class Program {
 
     List < Produkts > produkti = new List < Produkts > ();
 
-    produkti.Add(new Produkts("1234512345", 20.50, "Lenovo BrickPad 5 pro", 0.00, 500));
-    produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
-    produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
-    produkti.Add(new Produkts("2536746726", 229.00, "Coleman Kobuk Valley 3 Plus", 0.00, 200));
-    produkti.Add(new Produkts("6256197653", 31.01, "Brain Games Catan", 20.68, 400));
+    if(DB.Exists()) {
+      Console.WriteLine("Izmanto produktus no DB...");
+      produkti = DB.Load();
+    } else {
+      Console.WriteLine("Izveido jaunu produktu saraktu...");
+      produkti.Add(new Produkts("1234512345", 20.50, "Lenovo BrickPad 5 pro", 0.00, 500));
+      produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
+      produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
+      produkti.Add(new Produkts("2536746726", 229.00, "Coleman Kobuk Valley 3 Plus", 0.00, 200));
+      produkti.Add(new Produkts("6256197653", 31.01, "Brain Games Catan", 20.68, 400));
+  
+      DB.Save(produkti); 
+    }
 
     while (true) {
+
+      // Saglabā datu bāzi katru reizi kad klients kaut ko izdara
+      DB.Save(produkti);
+      
       if (klients == default (Pircejs)) {
         Console.Clear();
         Console.WriteLine("Sveicināti internetveikalā!");
