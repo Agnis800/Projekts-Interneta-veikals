@@ -12,7 +12,7 @@ class Program {
 
     List < Produkts > produkti = new List < Produkts > ();
 
-    if(DB.Exists()) {
+    if (DB.Exists()) {
       Console.WriteLine("Izmanto produktus no DB...");
       produkti = DB.Load();
     } else {
@@ -121,6 +121,9 @@ class Program {
 
         if (input == "4") {
           klients.Pirkt(grozs);
+          Console.WriteLine($"Nopirkts par {grozs.Cena}, jums ir atlikuši {klients.Nauda}");
+          Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
+          Console.ReadLine();
           grozs = new Pasutijums(klients, (int)(DateTime.Now.Ticks % 100));
         }
       }
