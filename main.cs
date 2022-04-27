@@ -19,7 +19,6 @@ class Program {
       Console.WriteLine("Izveido jaunu produktu saraktu...");
       produkti.Add(new Produkts("1234512345", 20.50, "Lenovo BrickPad 5 pro", 0.00, 500));
       produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
-      produkti.Add(new Produkts("1516176185", 287.99, "Xiaomi Mop Pro", 0.00, 1000));
       produkti.Add(new Produkts("2536746726", 229.00, "Coleman Kobuk Valley 3 Plus", 0.00, 200));
       produkti.Add(new Produkts("6256197653", 31.01, "Brain Games Catan", 20.68, 400));
   

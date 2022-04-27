@@ -1,5 +1,4 @@
 1234512345|20.5|Lenovo BrickPad 5 pro|0|500
-1516176185|287.99|Xiaomi Mop Pro|0|950
-1516176185|287.99|Xiaomi Mop Pro|0|1000
-2536746726|229|Coleman Kobuk Valley 3 Plus|0|200
-6256197653|31.01|Brain Games Catan|20.68|400
+1516176185|287.99|Xiaomi Mop Pro|0|939
+2536746726|229|Coleman Kobuk Valley 3 Plus|0|199
+6256197653|31.01|Brain Games Catan|20.68|399
