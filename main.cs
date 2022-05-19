@@ -119,11 +119,16 @@ class Program {
         }
 
         if (input == "4") {
-          klients.Pirkt(grozs);
-          Console.WriteLine($"Nopirkts par {grozs.Cena}, jums ir atlikuši {klients.Nauda}");
-          Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
-          Console.ReadLine();
-          grozs = new Pasutijums(klients, (int)(DateTime.Now.Ticks % 100));
+          if(klients.Pirkt(grozs)) {
+            Console.WriteLine($"Nopirkts par {grozs.Cena}, jums ir atlikuši {klients.Nauda}");
+            Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
+            Console.ReadLine();
+            grozs = new Pasutijums(klients, (int)(DateTime.Now.Ticks % 100));
+          } else {
+            Console.WriteLine($"Pirkums neizdevās!");
+            Console.WriteLine("Nospied Enter, lai aizietu atpakaļ");
+            Console.ReadLine();
+          }
         }
       }
     }

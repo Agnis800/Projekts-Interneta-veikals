@@ -24,7 +24,7 @@ class Pircejs {
     
     if(this.Nauda < pasutijums.Cena) {
       Console.WriteLine($">> Klientam {this.KlientaID} nepietiek naudas pasūtījumam {pasutijums.PasutijumaID}!");
-      return;
+      return false;
     }
 
     this.Nauda -= pasutijums.Cena;
@@ -33,5 +33,7 @@ class Pircejs {
     this.LojalitatesPunkti += (int)Math.Floor(pasutijums.Cena / 100);
 
     pasutijums.nopirkts = true;
+
+    return true;
   }
 }
